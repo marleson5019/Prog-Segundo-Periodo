@@ -1,0 +1,31 @@
+'''Marlyson Rodrigues Souza
+22/09/2025
+Calcula a área de um triângulo retângulo a partir de A e B
+e imprime 0.00 caso algum seja zero.'''
+
+def main():
+    # Declaração de variáveis
+    a = float()
+    b = float()
+    area = float()
+
+    # Entrada de dados inicial
+    a = float(input())
+    b = float(input())
+
+    # Processamento
+    while a != 0 or b != 0:
+        if a == 0 or b == 0:
+            area = 0.00
+        else:
+            area = (a * b) / 2
+
+        # Saída de dados
+        print(f"A={a:.2f} B={b:.2f} Area={area:.2f}")
+
+        # Próxima entrada
+        a = float(input())
+        b = float(input())
+
+if __name__ == "__main__":
+    main()
