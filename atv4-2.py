@@ -7,13 +7,10 @@ qtd_disciplinas = 0
 
 #Função (a)
 def preenche_lista(qtd_disciplinas:int) ->list:
-    #Inicialização de variáveis
     lista = []
-    #Entrada de dados
     for i in range(qtd_disciplinas):
         valor = float(input())
         lista.append(valor)
-    #Saída de dados
     return lista
 
 #Função (b)
@@ -26,14 +23,21 @@ def media_ponderada(notas, pesos):
     media = soma / soma_pesos
     return media
 
-#Função (c)
+#Função (c) — CORRIGIDA
 def preenche_turma(qtd_alunos:int, qtd_disciplinas:int) ->list:
     turma = []
+
+    # primeiro ler os nomes
     for i in range(qtd_alunos):
         nome = input()
-        notas = preenche_lista(qtd_disciplinas)
-        aluno = [nome, notas]
-        turma.append(aluno)
+        turma.append([nome, []])
+
+    # agora ler as notas aluno por aluno
+    for a in range(qtd_alunos):
+        for d in range(qtd_disciplinas):
+            nota = float(input())
+            turma[a][1].append(nota)
+
     return turma
 
 #Função (d)
@@ -46,21 +50,18 @@ def relatorio(turma, pesos):
 
 #Função principal
 def main():
-    #Entrada de dados
     qtd_alunos = int(input())
     qtd_disciplinas = int(input())
     print()
+
     pesos = preenche_lista(qtd_disciplinas)
     print()
 
-    #Processamento
     turma = preenche_turma(qtd_alunos, qtd_disciplinas)
     print()
 
-    #Saída de dados
     print("\n--- RELATÓRIO ---")
     relatorio(turma, pesos)
 
-#Invocação da função main
 if __name__ == "__main__":
     main()
