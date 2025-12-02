@@ -20,18 +20,16 @@ resultado = ""
 def caracteres_comuns(string1, string2):
     #Inicialização de variáveis
     resultado = ""
-    usados = set()
 
     #Processamento
     for c in string1:
-        if c in string2 and c not in usados:
+        if c in string2 and c not in resultado:
             resultado += c
-            usados.add(c)
     return resultado
 
 #Função principal
 def main():
-    #Entrada de dados
+    #Entrada de dados inicial
     string1 = input()
     string2 = input()
 
